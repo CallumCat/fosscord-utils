@@ -1,6 +1,5 @@
 import "missing-native-js-functions";
 import fetch from "node-fetch";
-import ProxyAgent from 'proxy-agent';
 import readline from "readline";
 import fs from "fs/promises";
 import path from "path";
@@ -53,8 +52,7 @@ async function download(url: string, dir: string) {
 	try {
 		// TODO: use file stream instead of buffer (to prevent crash because of high memory usage for big files)
 		// TODO check file hash
-		const agent = new ProxyAgent();
-		const response = await fetch(url, { agent });
+		const response = await fetch(url);
 		const buffer = await response.buffer();
 		const tempDir = await fs.mkdtemp("fosscord");
 		fs.writeFile(path.join(tempDir, "Fosscord.zip"), buffer);
@@ -74,8 +72,7 @@ async function getCurrentVersion(dir: string) {
 
 async function getLatestVersion(url: string) {
 	try {
-		const agent = new ProxyAgent();
-		const response = await fetch(url, { agent });
+		const response = await fetch(url);
 		const content = await response.json();
 		return content.version;
 	} catch (error) {

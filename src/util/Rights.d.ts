@@ -1,0 +1,47 @@
+import { BitField } from "./BitField";
+import "missing-native-js-functions";
+import { BitFieldResolvable } from "./BitField";
+export declare type RightResolvable = bigint | number | Rights | RightResolvable[] | RightString;
+declare type RightString = keyof typeof Rights.FLAGS;
+export declare class Rights extends BitField {
+    constructor(bits?: BitFieldResolvable);
+    static FLAGS: {
+        OPERATOR: bigint;
+        MANAGE_APPLICATIONS: bigint;
+        MANAGE_GUILDS: bigint;
+        MANAGE_MESSAGES: bigint;
+        MANAGE_RATE_LIMITS: bigint;
+        MANAGE_ROUTING: bigint;
+        MANAGE_TICKETS: bigint;
+        MANAGE_USERS: bigint;
+        ADD_MEMBERS: bigint;
+        BYPASS_RATE_LIMITS: bigint;
+        CREATE_APPLICATIONS: bigint;
+        CREATE_CHANNELS: bigint;
+        CREATE_DMS: bigint;
+        CREATE_DM_GROUPS: bigint;
+        CREATE_GUILDS: bigint;
+        CREATE_INVITES: bigint;
+        CREATE_ROLES: bigint;
+        CREATE_TEMPLATES: bigint;
+        CREATE_WEBHOOKS: bigint;
+        JOIN_GUILDS: bigint;
+        PIN_MESSAGES: bigint;
+        SELF_ADD_REACTIONS: bigint;
+        SELF_DELETE_MESSAGES: bigint;
+        SELF_EDIT_MESSAGES: bigint;
+        SELF_EDIT_NAME: bigint;
+        SEND_MESSAGES: bigint;
+        USE_ACTIVITIES: bigint;
+        USE_VIDEO: bigint;
+        USE_VOICE: bigint;
+        INVITE_USERS: bigint;
+        SELF_DELETE_DISABLE: bigint;
+        DEBTABLE: bigint;
+        CREDITABLE: bigint;
+    };
+    any(permission: RightResolvable, checkOperator?: boolean): boolean;
+    has(permission: RightResolvable, checkOperator?: boolean): boolean;
+    hasThrow(permission: RightResolvable): boolean;
+}
+export {};
