@@ -39,6 +39,7 @@
 	},
 	"dependencies": {
 		"amqplib": "^0.8.0",
+		"form-data": ">=4.0.0",
 		"better-sqlite3": "^7.4.3",
 		"jsonwebtoken": "^8.5.1",
 		"lambert-server": "^1.2.12",
